@@ -22,17 +22,19 @@ ls
 cd create-other-servers
 terraform init
 terraform apply '-var-file=infrastructure_values.tfvars' --auto-approve
-cd ../
+cd ..
 
 # ASSOCIATE SUBNETS TO ROUTE TABLE
 cd subnet_rt_assoc
 ls
 terraform init
 terraform apply --auto-approve
+cd ../../
 
 # PLAY ANSIBLE PLAYBOOK 
-#cd ..
-#cd ansible-job
+cd ansible-jobs
+ls
+sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook playbook/playbookbroker.yml -i inventory/hosts/ec2.py -vvvvv'
 #ls
 
 #export ANSIBLE_HOSTS=inventory/ec2.py
