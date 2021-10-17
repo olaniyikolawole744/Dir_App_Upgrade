@@ -2,7 +2,7 @@
 
 #CREATE AMIS
 echo "creating ami....."
-cd packer
+cd packer-jobs
 ls
 cd agent-ami
 ls
