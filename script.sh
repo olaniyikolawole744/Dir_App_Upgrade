@@ -16,7 +16,7 @@
 #/usr/bin/packer build ansible_master_ami.pkr.hcl
 
 # CREATE SERVERS
-cd ../../
+#cd ../../
 cd terraform-jobs
 ls
 cd create-other-servers
