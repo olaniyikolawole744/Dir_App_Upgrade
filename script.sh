@@ -32,9 +32,9 @@ terraform apply --auto-approve
 cd ../../
 
 # PLAY ANSIBLE PLAYBOOK 
-cd ansible-jobs
-ls
-sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook playbook/playbookbroker.yml -i inventory/hosts/ec2.py -vvvvv'
+#cd ansible-jobs
+#ls
+#sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook playbook/playbookbroker.yml -i inventory/hosts/ec2.py -vvvvv'
 #ls
 
 #export ANSIBLE_HOSTS=inventory/ec2.py
