@@ -33,7 +33,7 @@ build {
   sources = ["source.amazon-ebs.agent_ami"]
 
   provisioner "file" {
-    source      = "../credentials/tf-packer.pub"
+    source      = "tf-packer.pub"
     destination = "/tmp/"
   }
 

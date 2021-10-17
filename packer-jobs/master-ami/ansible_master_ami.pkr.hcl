@@ -33,12 +33,12 @@ build {
   sources = ["source.amazon-ebs.ansible_master_ami"]
 
   provisioner "file" {
-    source      = "../credentials/tf-packer.pub"
+    source      = "tf-packer.pub"
     destination = "/tmp/"
   }
 
   provisioner "file" {
-    source      = "../credentials/tf-packer"
+    source      = "tf-packer"
     destination = "/tmp/"
   }
 
