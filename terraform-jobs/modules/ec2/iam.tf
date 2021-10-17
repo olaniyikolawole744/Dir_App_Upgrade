@@ -11,6 +11,10 @@ resource "aws_iam_role_policy" "ec2_policy" {
         Action = [
           "ec2:*",
         ]
+        "Action": "ec2:*",
+            "Effect": "Allow",
+            "Resource": "*"
+
         Effect   = "Allow"
         Resource = "*"
       },

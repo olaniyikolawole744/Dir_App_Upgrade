@@ -26,10 +26,7 @@
           dest: /tmp/project
           separate_git_dir: /tmp/projectbakup2
 
-
-
   - hosts:
-    #  - broker
       - tag_Name_ansible_server
     become: yes
     tasks:      
