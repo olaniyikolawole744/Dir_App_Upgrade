@@ -3,10 +3,8 @@ pipeline {
 
     environment {
         ANSIBLE_VAULT_PASSWORD_FILE = credentials ('PRIVATE_KEY')
-        ACCESS_KEY = credentials ('ACCESS_KEY')
-        SECRET_KEY = credentials ('SECRET_KEY')
-        ANSIBLE_HOSTS="inventory/ec2.py"
-        EC2_INI_PATH="inventory/ec2.ini"
+        ANSIBLE_HOSTS="ansible-jobs/inventory/ec2.py"
+        EC2_INI_PATH="ansible-jobs/inventory/ec2.ini"
         DOCKERKEY = credentials ('DOCKER_KEY')
     }
 
@@ -15,13 +13,13 @@ pipeline {
             steps {
                 sh 'ls'
                 sh 'chmod -x script.sh'  
-                sh 'chmod -x play_ansible_book.sh'
+                
             }
         }
 
-        stage('RUN INFRASTRUCTURE BASH SCRIPT') {
+        stage('BUILD INFRASTRUCTURE') {
             steps {
-                sh 'sh create_infrastructure.sh'
+                sh 'sh script.sh'
            }
         } 
 
