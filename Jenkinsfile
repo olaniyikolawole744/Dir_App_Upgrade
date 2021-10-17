@@ -27,7 +27,7 @@ pipeline {
                 sh './ansible-jobs/inventory/hosts/ec2.py'
                 sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ansible-jobs/playbook/playbookbroker.yml -i ansible-job/inventory/hosts/ec2.py -vvvvv'
                 sh 'echo "task completed"'  
-                sh 'thank you Jesus'          
+                sh 'echo thank you Jesus'          
                 }
         }  
     }
