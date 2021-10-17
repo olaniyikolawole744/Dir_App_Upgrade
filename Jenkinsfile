@@ -25,7 +25,8 @@ pipeline {
 
         stage('PLAY ANSIBLE BOOK') {
             steps {
-                sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ansible-jobs/playbook/playbookbroker.yml -i ansible-job/inventory/hosts/ec2.ini -vvvvv'
+                sh './ansible-jobs/inventory/hosts/ec2.py'
+                sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ansible-jobs/playbook/playbookbroker.yml -i ansible-job/inventory/hosts/ec2.py -vvvvv'
                 sh 'echo "task completed"'            
                 }
         }  
