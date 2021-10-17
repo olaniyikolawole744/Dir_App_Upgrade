@@ -12,7 +12,7 @@ variable "secret_key" {
 
 variable "region" {
   type      = string
-  default   = "${env("AWS_REGION")}"
+  default   = "us-east-1"
   sensitive = true
 }
 
