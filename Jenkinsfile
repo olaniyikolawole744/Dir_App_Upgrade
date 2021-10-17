@@ -12,8 +12,7 @@ pipeline {
         stage('CONVERT INFRASTRUCTURE FILE TO EXECUTABLE') {
             steps {
                 sh 'ls'
-                sh 'chmod -x script.sh'  
-                
+                sh 'chmod -x script.sh'
             }
         }
 

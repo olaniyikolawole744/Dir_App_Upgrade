@@ -2,6 +2,7 @@
   - hosts:
       - tag_Role_dir_app
     become: yes
+    gather_facts: yes
     tasks:
       - name: Write welcome message profile.d file
         ansible.builtin.template:
