@@ -1,14 +1,13 @@
 # EC2 INSTANCE ARGUMENT VALUES
 ami_values                  = ["jenkins_master_ami"]
 instance_type               = "t2.large"
-key_name                    = "win-on-mac"
+key_name                    = "lennips-on-mac"
 server_name                 = ["jenkins_tool"]
 role                        = "jenkins_tool"
 environment                 = "jenkins_tool_dev"
-name_list_index             = 1
+name_list_index             = "1"
 name                        = ""
 server_amis                 = ""
-#user_data                   = ""
 
 # SECURITY GROUP ARGUMENT VALUES
 from_port = "22"

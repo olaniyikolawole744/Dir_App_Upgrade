@@ -17,8 +17,8 @@ variable "key_name" {}
 #variable "user_data" {}
 
 variable "server_name" {
-    type = list
-    default = ["jenkins_server"]
+type = list
+default = ["jenkins_server"]
 }
 
 variable name {}

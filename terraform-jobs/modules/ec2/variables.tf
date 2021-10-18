@@ -8,7 +8,7 @@ variable ami_values {
 variable server_amis {}
 
 variable name_list_index {
-    type = number
+    #type = number
 }
 
 variable instance_type {} 
@@ -18,7 +18,7 @@ variable key_name {}
 #variable user_data {}
 
 variable server_name {
-    type = list
+   type = list
    default = ["ansible","dev","prod"]
    #default = ["jenkins_server"]
    

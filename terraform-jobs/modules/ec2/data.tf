@@ -30,4 +30,12 @@ data "aws_ami" "server_ami" {
   owners = ["self"]
 }
 
+data "aws_iam_role" "master_server_iam_role" {
+  name = "dir_app_master_ec2_role"
+}
+
+data "aws_iam_instance_profile" "master_server_iam_profile" {
+  name = "dir_app_master_ec2_profile"
+}
+
 

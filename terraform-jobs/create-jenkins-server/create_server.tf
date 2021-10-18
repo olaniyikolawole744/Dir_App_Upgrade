@@ -14,14 +14,6 @@ provider "aws" {
   region  = var.region
 }
 
-/*module "vpc" {
-    source = "../vpc"
-    #subnet_id = module.servers.subnet_parameters.id
-    #subnet_id = module.servers.subnet_parameters
-}*/
-
-
-
 module "servers" {
   count = 1
   source = "../modules/ec2"
@@ -42,9 +34,4 @@ module "servers" {
   backend_key                = var.backend_key[count.index]
   name_list_index            = count.index
 }
-
-/*output "ec2_instance_ip" {
-    #value = aws_instance.web.public_ip
-    value = module.servers.ec2_instance_ip
-}*/
 

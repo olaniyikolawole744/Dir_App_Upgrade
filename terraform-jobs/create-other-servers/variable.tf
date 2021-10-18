@@ -7,7 +7,7 @@ variable "ami_values" {
 variable server_amis {}
 
 variable name_list_index {
-    type = number
+    #type = number
 }
 
 variable "instance_type" {}
@@ -46,6 +46,7 @@ variable "protocol" {}
 variable "public_subnet_cidr_block" {
     default = []
 }
+
 variable "availability_zone_marker" {
     default = []
 }

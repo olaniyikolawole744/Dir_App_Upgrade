@@ -1,14 +1,14 @@
 # EC2 INSTANCE ARGUMENT VALUES
 ami_values                  = ["ansible_master_ami","agent_ami","agent_ami"]
 instance_type               = "t2.medium"
-key_name                    = "win-on-mac.pem"
+key_name                    = "lennips-on-mac"
 server_name                 = ["ansible","dev","prod"]
 role                        = "dir_app"
 environment                 = "prod"
-name_list_index             = "1"
+name_list_index             = ""
 name                        = ""
 server_amis                 = ""
-#user_data                   = ""
+#user_data                  = ""
 
 # SECURITY GROUP ARGUMENT VALUES
 from_port = "22"
