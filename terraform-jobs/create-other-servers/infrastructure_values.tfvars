@@ -1,7 +1,7 @@
 # EC2 INSTANCE ARGUMENT VALUES
 ami_values                  = ["ansible_master_ami","agent_ami","agent_ami"]
 instance_type               = "t2.medium"
-key_name                    = "lennips_laptop"
+key_name                    = "win-on-mac.pem"
 server_name                 = ["ansible","dev","prod"]
 role                        = "dir_app"
 environment                 = "prod"

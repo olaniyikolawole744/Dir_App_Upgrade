@@ -25,7 +25,7 @@ source "amazon-ebs" "agent_ami" {
   region        = "${var.region}"
   ssh_username  = "ec2-user"
   ami_name      = "agent_ami"
-  source_ami    = "ami-087c17d1fe0178315"
+  source_ami    = "ami-02e136e904f3da870"
   instance_type = "t2.micro"
 }
 

@@ -16,4 +16,4 @@ sudo mkdir /home/$username/.ssh/id_rsa.pub
 sudo cp /tmp/tf-packer /home/$username/.ssh/id_rsa
 sudo cp /tmp/tf-packer.pub /home/$username/.ssh/id_rsa.pub
 sudo cp /tmp/tf-packer.pub /home/$username/.ssh/authorized_keys
-sudo cp /tmp/get-pip.py /home/$username/get-pip.py
+#sudo cp /tmp/get-pip.py /home/$username/get-pip.py
