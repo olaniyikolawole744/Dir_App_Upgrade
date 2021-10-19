@@ -11,9 +11,12 @@ sudo chmod 600 /home/$username/.ssh/authorized_keys
 sudo mkdir /home/$username/.ssh/id_rsa
 sudo chmod 600 /home/$username/.ssh/id_rsa
 sudo mkdir /home/$username/.ssh/id_rsa.pub
+sudo chown -R ansible:ansible /home/ansible/.ssh
+
+
 
 # CONFIGURE SSH KEYS
 sudo cp /tmp/tf-packer /home/$username/.ssh/id_rsa
 sudo cp /tmp/tf-packer.pub /home/$username/.ssh/id_rsa.pub
 sudo cp /tmp/tf-packer.pub /home/$username/.ssh/authorized_keys
-sudo cp /tmp/get-pip.py /home/$username/get-pip.py
+#sudo cp /tmp/get-pip.py /home/$username/get-pip.py

@@ -16,7 +16,6 @@ provider "aws" {
 
 resource "aws_route_table_association" "aws_route_table_association_public_subnet" {
   count = length(var.subnet_marker_values)
-  #count = 1
   subnet_id =  data.aws_subnet.selected[count.index].id
   route_table_id = tolist(data.aws_route_tables.rts.ids)[0]
   }

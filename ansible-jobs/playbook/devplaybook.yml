@@ -1,0 +1,30 @@
+---
+  - hosts:
+      - tag_Name_ansible_server
+    become: yes
+    tasks:      
+      - name: Log into DockerHub
+        docker_login:
+          registry_url: https://registry.hub.docker.com
+          username: olaniyikolawole744
+          password: "{{ dockerhubpass }}"
+          reauthorize: yes
+
+      - name: Build and Push Image to DockerHub
+        docker_image:
+          build:
+            path: /tmp/project/code
+            dockerfile: Dockerfile
+            pull: yes
+          source: build
+          push: yes
+          name: registry.hub.docker.com/olaniyikolawole744/direction-dev
+          tag: latest
+
+      - name: pull dir_app image from docker hub
+        docker_image: 
+          name: direction-dev
+          tag: latest
+          source: pull
+          repository: registry.hub.docker.com/olaniyikolawole744/direction-dev
+      

@@ -42,11 +42,6 @@ build {
     destination = "/tmp/"
   }
 
-  provisioner "file" {
-    source      = "get-pip.py"
-    destination = "/tmp/"
-  }
-
   provisioner "shell" {
     script = "create-ansible-master-user.sh"
   }
