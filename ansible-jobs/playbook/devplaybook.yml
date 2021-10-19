@@ -27,4 +27,12 @@
           tag: latest
           source: pull
           repository: registry.hub.docker.com/olaniyikolawole744/direction-dev
+
+      - name: run docker container
+        docker_container: 
+          name: direction-dev
+          image: direction-dev:latest
+          state: started
+          ports: 
+          - 8080:8080  
       

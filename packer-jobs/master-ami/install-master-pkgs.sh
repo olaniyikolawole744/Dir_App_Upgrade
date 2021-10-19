@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #INSTALL ANSIBLE
-echo "installing ansible....."
-sudo yum update -y
-sudo amazon-linux-extras install ansible2 -y
+#echo "installing ansible....."
+#sudo yum update -y
+#sudo amazon-linux-extras install ansible2 -y
 
 #INSTALL PACKER
 echo "installing packer....."

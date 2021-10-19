@@ -39,5 +39,10 @@ git clone https://github.com/pypa/pip
 cd pip
 sudo pip install docker-py
 
+#Install Ansible
+echo "installing ansible....."
+sudo yum update -y
+sudo amazon-linux-extras install ansible2 -y
+
 
 

@@ -42,9 +42,7 @@ build {
     destination = "/tmp/"
   }
 
-  provisioner "shell" {
-    script = "create-ansible-master-user.sh"
-  }
+  
 
   provisioner "shell" {
     script = "create-jenkins-agent-user.sh"
@@ -56,5 +54,9 @@ build {
 
   provisioner "shell" {
     script = "install-master-pkgs.sh"
+  }
+
+  provisioner "shell" {
+    script = "create-ansible-master-user.sh"
   }
 }

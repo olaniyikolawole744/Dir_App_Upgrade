@@ -42,7 +42,7 @@ build {
     destination = "/tmp/"
   }
 
-  provisioner "shell" {
+provisioner "shell" {
 
     script = "create-jenkins-master-users.sh"
   }
@@ -51,11 +51,14 @@ build {
     script = "install-master-dependency.sh"
   }
 
-  provisioner "shell" {
-    script = "install-master-pkgs.sh"
-  }
+  
 
   provisioner "shell" {
     script = "credentials.sh"
   }
+
+  provisioner "shell" {
+    script = "install-master-pkgs.sh"
+  }
+
 }
