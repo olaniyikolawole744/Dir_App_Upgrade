@@ -22,7 +22,7 @@ ls
 cd create-other-servers
 terraform init
 terraform apply '-var-file=infrastructure_values.tfvars' --auto-approve
-cd ..
+cd ../
 
 # ASSOCIATE SUBNETS TO ROUTE TABLE
 cd subnet_rt_assoc
