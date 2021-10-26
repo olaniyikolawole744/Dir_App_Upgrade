@@ -9,22 +9,7 @@ pipeline {
     }
 
     stages {
-        stage('BUILD AMIs') {
-            steps {
-                sh 'ls'
-                sh 'cd scripts'
-                sh 'sh packer_script.sh'
-            }
-        }
-
-        stage('BUILD INFRASTRUCTURE') {
-            steps {
-                cd 
-                sh 'sh ansible-vault decrypt packer-jobs/master-ami/tf-packer --vault-password-file $ANSIBLE_VAULT_PASSWORD_FILE'
-                sh 'sh terraform_script.sh'
-           }
-        } 
-
+        
         stage('PLAY ANSIBLE BOOK') {
              when {
                 branch "develop"
@@ -34,13 +19,6 @@ pipeline {
                 }
         }  
 
-        stage('PLAY ANSIBLE BOOK') {
-             when {
-                branch "master"
-            }
-            steps {
-                sh 'sh prod_playbook.sh'      
-            }
-        } 
+        
     }
 }
