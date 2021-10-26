@@ -11,9 +11,7 @@ pipeline {
     stages {
         
         stage('PLAY ANSIBLE BOOK') {
-             when {
-                branch "develop"
-            }
+             
             steps {
                 sh 'sh dev_playbook.sh'      
                 }
