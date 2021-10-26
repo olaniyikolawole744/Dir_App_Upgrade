@@ -20,9 +20,24 @@ resource "aws_route_table_association" "aws_route_table_association_public_subne
   route_table_id = tolist(data.aws_route_tables.rts.ids)[0]
   }
 
+
+
+
+
+
 output sub_id {
     
     value = data.aws_subnet.selected[0].id
+}
+
+output sub_id2 {
+    
+    value = data.aws_subnet.selected[1].id
+}
+
+output sub_id3 {
+    
+    value = data.aws_subnet.selected[2].id
 }
 
 output rtbl_id {

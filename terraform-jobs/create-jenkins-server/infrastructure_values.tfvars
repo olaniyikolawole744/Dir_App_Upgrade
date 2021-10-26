@@ -1,7 +1,7 @@
 # EC2 INSTANCE ARGUMENT VALUES
 ami_values                  = ["jenkins_master_ami"]
-instance_type               = "t2.large"
-key_name                    = "lennips-on-mac"
+instance_type               = "t2.micro"
+key_name                    = "new-devops-key"
 server_name                 = ["jenkins_tool"]
 role                        = "jenkins_tool"
 environment                 = "jenkins_tool_dev"

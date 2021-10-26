@@ -1,2 +1,3 @@
 credentials.sh
-tf-packer-password
+private-key-file
+tf-packer*

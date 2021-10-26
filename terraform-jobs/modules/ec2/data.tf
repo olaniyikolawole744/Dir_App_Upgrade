@@ -31,11 +31,11 @@ data "aws_ami" "server_ami" {
 }
 
 data "aws_iam_role" "master_server_iam_role" {
-  name = "dir_app_master_ec2_role"
+  name = "test_role"
 }
 
 data "aws_iam_instance_profile" "master_server_iam_profile" {
-  name = "dir_app_master_ec2_profile"
+  name = "test_role"
 }
 
 

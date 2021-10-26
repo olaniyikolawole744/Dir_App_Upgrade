@@ -3,6 +3,7 @@
 #Installing Dependencies
 sudo yum update -y
 sudo yum install java -y
+sudo yum install git -y
 
 #Install Docker Module
 sudo yum install pip -y

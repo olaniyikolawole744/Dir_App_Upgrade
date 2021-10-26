@@ -5,30 +5,42 @@ pipeline {
         ANSIBLE_VAULT_PASSWORD_FILE = credentials ('PRIVATE_KEY')
         ANSIBLE_HOSTS="ansible-jobs/inventory/ec2.py"
         EC2_INI_PATH="ansible-jobs/inventory/ec2.ini"
-        DOCKERKEY = credentials ('DOCKER_KEY')
+        DOCKERHUBKEY = credentials ('DOCKERHUB_KEY')
     }
 
     stages {
-        stage('CONVERT INFRASTRUCTURE FILE TO EXECUTABLE') {
+        stage('BUILD AMIs') {
             steps {
                 sh 'ls'
-                sh 'chmod -x script.sh'
+                sh 'cd scripts'
+                sh 'sh packer_script.sh'
             }
         }
 
         stage('BUILD INFRASTRUCTURE') {
             steps {
-                sh 'sh script.sh'
+                cd 
+                sh 'sh ansible-vault decrypt packer-jobs/master-ami/tf-packer --vault-password-file $ANSIBLE_VAULT_PASSWORD_FILE'
+                sh 'sh terraform_script.sh'
            }
         } 
 
         stage('PLAY ANSIBLE BOOK') {
+             when {
+                branch "develop"
+            }
             steps {
-                sh './ansible-jobs/inventory/hosts/ec2.py'
-                sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ansible-jobs/playbook/playbookbroker.yml -i ansible-job/inventory/hosts/ec2.py -vvvvv'
-                sh 'echo "task completed"'  
-                sh 'echo thank you Jesus'          
+                sh 'sh dev_playbook.sh'      
                 }
         }  
+
+        stage('PLAY ANSIBLE BOOK') {
+             when {
+                branch "master"
+            }
+            steps {
+                sh 'sh prod_playbook.sh'      
+            }
+        } 
     }
 }

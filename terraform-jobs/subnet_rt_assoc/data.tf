@@ -19,7 +19,6 @@ data "aws_route_tables" "rts" {
 
 data "aws_subnet" "selected" {
   count = length(var.subnet_marker_values)
-  #count = 1
   filter {
       name = "vpc-id"
       values = [data.aws_vpc.server_vpc.id]

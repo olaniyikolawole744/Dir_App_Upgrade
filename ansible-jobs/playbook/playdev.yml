@@ -1,0 +1,53 @@
+---
+  - hosts:
+      - tag_Name_dev_server
+    become: yes
+    gather_facts: yes
+    tasks:
+      - name: Write welcome message profile.d file
+        ansible.builtin.template:
+          src: welcome_message.j2
+          dest: /etc/profile.d/welcome_message.sh
+          owner: root
+          group: root
+          mode: '0644'
+
+      - name: Starting Docker
+        ansible.builtin.shell: sudo systemctl start docker
+
+      - name: Getting Docker Status
+        ansible.builtin.shell: sudo systemctl status docker
+
+      - name: Clone repo on servers
+        ansible.builtin.git:
+          repo: https://github.com/olaniyikolawole744/devops-penultimante-project.git
+          dest: /tmp/project
+          separate_git_dir: /tmp/projectbakup2
+
+      - name: Log into DockerHub
+        docker_login:
+          registry_url: https://registry.hub.docker.com
+          username: "{{ dockerhubusername }}"
+          password: "{{ dockerhubpassword }}"
+          reauthorize: yes
+
+      - name: Build and Push Image to DockerHub
+        docker_image:
+          build:
+            path: /tmp/project/code
+            dockerfile: Dockerfile
+            pull: yes
+          source: build
+          push: yes
+          name: registry.hub.docker.com/olaniyikolawole744/direction-dev
+          tag: latest
+
+      - name: pull dir_app image from docker hub
+        docker_image:
+          name: olaniyikolawole744/direction-dev
+          tag: latest
+          source: pull
+          repository: registry.hub.docker.com/olaniyikolawole744/direction-dev
+
+      - name: Create container from command line
+        ansible.builtin.shell: sudo  docker run -d -p 8080:8080 -e loginname=myname -e loginpass=mypass -e api_key=*****  olaniyikolawole744/direction-dev:latest

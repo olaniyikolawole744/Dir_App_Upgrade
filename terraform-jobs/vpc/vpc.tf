@@ -44,6 +44,8 @@ resource "aws_route_table" "public_route_table" {
   }
 }
 
+
+/*
 # CREATE IAM ROLE
 resource "aws_iam_role_policy" "ec2_policy" {
   name = "ec2_policy"
@@ -97,5 +99,5 @@ resource "aws_iam_instance_profile" "test_profile" {
   role = aws_iam_role.test_role.name
   }
 
-
+*/
 
