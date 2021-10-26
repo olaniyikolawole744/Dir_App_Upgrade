@@ -13,7 +13,7 @@ pipeline {
         stage('PLAY ANSIBLE BOOK') {
              
             steps {
-                sh 'sh dev_playbook.sh'      
+                sh 'sh scripts/dev_playbook.sh'      
                 }
         }  
         
